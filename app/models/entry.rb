@@ -7,12 +7,22 @@ class Entry < ApplicationRecord
   belongs_to :transfer, optional: true
   belongs_to :import, optional: true
 
+  has_many :entry_splits, dependent: :destroy
+  has_many :split_categories, through: :entry_splits, source: :category
+  accepts_nested_attributes_for :entry_splits, allow_destroy: true, reject_if: :all_blank
+
+  has_many :reimbursement_links_as_expense, class_name: "ReimbursementLink", foreign_key: :expense_entry_id, dependent: :destroy
+  has_many :reimbursement_links_as_income, class_name: "ReimbursementLink", foreign_key: :income_entry_id, dependent: :destroy
+  has_many :reimbursing_entries, through: :reimbursement_links_as_expense, source: :income_entry
+  has_many :reimbursed_entries, through: :reimbursement_links_as_income, source: :expense_entry
+
   delegated_type :entryable, types: Entryable::TYPES, dependent: :destroy
   accepts_nested_attributes_for :entryable
 
   validates :date, :name, :amount, :currency, presence: true
   validates :date, uniqueness: { scope: [ :account_id, :entryable_type ] }, if: -> { valuation? }
   validates :date, comparison: { greater_than: -> { min_supported_date } }
+  validate :splits_sum_matches_amount, if: -> { entry_splits.any? }
 
   scope :visible, -> {
     joins(:account).where(accounts: { status: [ "draft", "active" ] })
@@ -36,6 +46,14 @@ class Entry < ApplicationRecord
 
   def classification
     amount.negative? ? "income" : "expense"
+  end
+
+  def split?
+    entry_splits.loaded? ? entry_splits.any? : entry_splits.exists?
+  end
+
+  def reimbursement?
+    reimbursement_links_as_income.loaded? ? reimbursement_links_as_income.any? : reimbursement_links_as_income.exists?
   end
 
   def lock_saved_attributes!
@@ -96,4 +114,16 @@ class Entry < ApplicationRecord
       all.size
     end
   end
+
+  private
+
+    def splits_sum_matches_amount
+      splits_total = entry_splits.reject(&:marked_for_destruction?).sum(&:amount)
+      unless splits_total.round(4) == amount.round(4)
+        errors.add(:entry_splits, :sum_mismatch,
+          message: I18n.t("errors.entry_splits.sum_mismatch",
+            splits_total: splits_total,
+            entry_amount: amount))
+      end
+    end
 end

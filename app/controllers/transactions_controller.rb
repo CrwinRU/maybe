@@ -24,6 +24,26 @@ class TransactionsController < ApplicationController
     @pagy, @transactions = pagy(base_scope, limit: per_page)
   end
 
+  # GET /transactions/merchant_autocomplete?merchant_id=...&account_id=...
+  # Возвращает категорию и notes последней транзакции этого контрагента на счёте.
+  # Используется Stimulus-контроллером формы для автозаполнения.
+  def merchant_autocomplete
+    merchant_id = params[:merchant_id]
+    account_id  = params[:account_id]
+
+    last_txn = Transaction.last_for_merchant_on_account(merchant_id, account_id)
+
+    if last_txn
+      render json: {
+        category_id: last_txn.category_id,
+        category_name: last_txn.category&.name,
+        notes: last_txn.entry.notes
+      }
+    else
+      render json: {}
+    end
+  end
+
   def clear_filter
     updated_params = {
       "q" => search_params,
