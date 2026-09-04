@@ -31,4 +31,16 @@ class Transaction < ApplicationRecord
 
     update!(category: category)
   end
+
+  # Возвращает последнюю транзакцию этого контрагента на указанном счёте.
+  # Используется для автозаполнения категории и комментария в форме.
+  def self.last_for_merchant_on_account(merchant_id, account_id)
+    joins(:entry)
+      .where(merchant_id: merchant_id)
+      .where(entries: { account_id: account_id })
+      .order("entries.date DESC")
+      .limit(1)
+      .includes(:category, :entry)
+      .first
+  end
 end
