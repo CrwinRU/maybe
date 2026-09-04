@@ -132,7 +132,10 @@ class Transfer < ApplicationRecord
     def transfer_within_date_range
       return unless inflow_transaction&.entry && outflow_transaction&.entry
 
-      date_diff = (inflow_transaction.entry.date - outflow_transaction.entry.date).abs
+      # Сравниваем по дате (без времени) — порог 4 дня сохраняется
+      inflow_date  = inflow_transaction.entry.date.to_date
+      outflow_date = outflow_transaction.entry.date.to_date
+      date_diff = (inflow_date - outflow_date).abs
       errors.add(:base, "Must be within 4 days") if date_diff > 4
     end
 end
