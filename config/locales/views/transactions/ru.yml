@@ -1,6 +1,12 @@
 ---
 ru:
   transactions:
+    split_form:
+      title: Разбивка транзакции
+      total: Итого
+      add_split: Добавить строку
+      lock: Зафиксировать сумму
+      remove: Удалить строку
     form:
       account: Счёт
       account_prompt: Выберите счёт

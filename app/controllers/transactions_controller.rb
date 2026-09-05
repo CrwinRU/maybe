@@ -5,8 +5,6 @@ class TransactionsController < ApplicationController
 
   def new
     super
-    @income_categories = Current.family.categories.incomes.alphabetically
-    @expense_categories = Current.family.categories.expenses.alphabetically
   end
 
   def index
@@ -148,7 +146,8 @@ class TransactionsController < ApplicationController
     def entry_params
       entry_params = params.require(:entry).permit(
         :name, :date, :amount, :currency, :excluded, :notes, :nature, :entryable_type,
-        entryable_attributes: [ :id, :category_id, :merchant_id, :kind, { tag_ids: [] } ]
+        entryable_attributes: [ :id, :category_id, :merchant_id, :kind, { tag_ids: [] } ],
+        entry_splits_attributes: [ :id, :category_id, :amount, :locked, :position, :_destroy ]
       )
 
       nature = entry_params.delete(:nature)

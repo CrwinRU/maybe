@@ -1,6 +1,12 @@
 ---
 en:
   transactions:
+    split_form:
+      title: Split transaction
+      total: Total
+      add_split: Add line
+      lock: Lock amount
+      remove: Remove line
     form:
       account: Account
       account_prompt: Select an Account
