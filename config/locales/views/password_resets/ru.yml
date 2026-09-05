@@ -1,0 +1,12 @@
+---
+ru:
+  password_resets:
+    edit:
+      title: Сброс пароля
+    new:
+      requested: Проверьте почту — мы отправили ссылку для сброса пароля
+      submit: Сбросить пароль
+      title: Сброс пароля
+    update:
+      invalid_token: Недействительная ссылка
+      success: Пароль успешно изменён

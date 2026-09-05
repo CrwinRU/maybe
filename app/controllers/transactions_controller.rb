@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
 
   def index
     @q = search_params
-    @search = Transaction::Search.new(Current.family, filters: @q)
+    @search = Transaction::Search.new(Current.family, filters: @q.merge(reconciled_filter: params[:reconciled_filter]))
 
     base_scope = @search.transactions_scope
                        .reverse_chronological
@@ -173,7 +173,6 @@ class TransactionsController < ApplicationController
               .compact_blank
 
       cleaned_params.delete(:amount_operator) unless cleaned_params[:amount].present?
-
 
       cleaned_params
     end

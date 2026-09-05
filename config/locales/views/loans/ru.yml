@@ -1,0 +1,23 @@
+---
+ru:
+  loans:
+    edit:
+      edit: Изменить %{account}
+    form:
+      interest_rate: Процентная ставка
+      interest_rate_placeholder: '5.25'
+      initial_balance: Первоначальная сумма займа
+      rate_type: Тип ставки
+      term_months: Срок (месяцев)
+      term_months_placeholder: '360'
+    new:
+      title: Введите данные займа
+    overview:
+      interest_rate: Процентная ставка
+      monthly_payment: Ежемесячный платёж
+      not_applicable: Н/Д
+      original_principal: Первоначальная сумма
+      remaining_principal: Остаток долга
+      term: Срок
+      type: Тип
+      unknown: Неизвестно

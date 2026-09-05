@@ -14,6 +14,7 @@ class Transaction::Search
   attribute :merchants, array: true
   attribute :tags, array: true
   attribute :active_accounts_only, :boolean, default: true
+  attribute :reconciled_filter, :string, default: "all"
 
   attr_reader :family
 
@@ -28,6 +29,7 @@ class Transaction::Search
       query = family.transactions
 
       query = apply_active_accounts_filter(query, active_accounts_only)
+      query = apply_reconciled_filter(query, reconciled_filter)
       query = apply_category_filter(query, categories)
       query = apply_type_filter(query, types)
       query = apply_merchant_filter(query, merchants)
@@ -78,6 +80,14 @@ class Transaction::Search
 
   private
     Totals = Data.define(:count, :income_money, :expense_money)
+
+    def apply_reconciled_filter(query, filter)
+      case filter
+      when "reconciled"   then query.reconciled
+      when "unreconciled" then query.unreconciled
+      else query
+      end
+    end
 
     def apply_active_accounts_filter(query, active_accounts_only_filter)
       if active_accounts_only_filter

@@ -6,12 +6,14 @@
       <%= icon("chevron-right", color: "gray", size: "sm") %>
     <% end %>
 
+    <% translated_name = t("breadcrumbs.#{name.downcase.gsub(' ', '_')}", default: name) %>
+
     <% if path.present? && index < breadcrumbs.size - 1 %>
-      <%= link_to name, path, class: "text-sm text-gray-500 font-medium" %>
+      <%= link_to translated_name, path, class: "text-sm text-gray-500 font-medium" %>
     <% elsif index == breadcrumbs.size - 1 %>
-      <span class="text-primary font-medium text-sm"><%= name %></span>
+      <span class="text-primary font-medium text-sm"><%= translated_name %></span>
     <% else %>
-      <span class="text-sm text-gray-500 font-medium"><%= name %></span>
+      <span class="text-sm text-gray-500 font-medium"><%= translated_name %></span>
     <% end %>
   <% end %>
 </div>

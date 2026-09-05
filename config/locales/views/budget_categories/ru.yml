@@ -1,0 +1,7 @@
+---
+ru:
+  budget_categories:
+    no_categories:
+      title: Упс!
+      description: У вас пока нет ни одной категории расходов, созданной или
+        привязанной к транзакциям

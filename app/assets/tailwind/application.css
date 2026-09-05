@@ -173,3 +173,16 @@
     background: #a6a6a6;
   }
 }
+
+/* Reconciliation mode: show status icons, highlight rows on hover */
+body.reconciliation-mode .reconciliation-status {
+  display: inline-flex;
+}
+
+body.reconciliation-mode [data-action~="click->reconciliation#toggleRow"] {
+  cursor: pointer;
+
+  &:hover {
+    @apply bg-gray-50 dark:bg-gray-800/50 rounded-lg transition-colors;
+  }
+}

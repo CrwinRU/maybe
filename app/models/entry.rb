@@ -44,6 +44,9 @@ class Entry < ApplicationRecord
     )
   }
 
+  scope :reconciled, -> { where.not(reconciled_at: nil) }
+  scope :unreconciled, -> { where(reconciled_at: nil) }
+
   def classification
     amount.negative? ? "income" : "expense"
   end
@@ -92,6 +95,7 @@ class Entry < ApplicationRecord
       bulk_attributes = {
         date: bulk_update_params[:date],
         notes: bulk_update_params[:notes],
+        reconciled_at: bulk_update_params[:reconciled_at],
         entryable_attributes: {
           category_id: bulk_update_params[:category_id],
           merchant_id: bulk_update_params[:merchant_id],

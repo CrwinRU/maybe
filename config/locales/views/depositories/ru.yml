@@ -1,0 +1,10 @@
+---
+ru:
+  depositories:
+    edit:
+      edit: Изменить %{account}
+    form:
+      none: Нет
+      subtype_prompt: Выберите тип счёта
+    new:
+      title: Введите баланс счёта

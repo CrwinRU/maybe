@@ -1,0 +1,28 @@
+ru:
+  layouts:
+    application:
+      home: Главная
+      transactions: Транзакции
+      budgets: Бюджеты
+    auth:
+      existing_account: Уже есть аккаунт?
+      no_account: Впервые в FinAIzen?
+      sign_in: Войти
+      sign_up: Создать аккаунт
+      your_account: Ваш аккаунт
+    shared:
+      footer:
+        privacy_policy: Политика конфиденциальности
+        terms_of_service: Условия использования
+  breadcrumbs:
+    home: Главная
+    transactions: Транзакции
+    accounts: Счета
+    budgets: Бюджеты
+    imports: Импорт
+    settings: Настройки
+    categories: Категории
+    tags: Теги
+    merchants: Контрагенты
+    rules: Правила
+    pages: Главная

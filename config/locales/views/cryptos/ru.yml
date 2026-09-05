@@ -1,0 +1,7 @@
+---
+ru:
+  cryptos:
+    edit:
+      edit: Изменить %{account}
+    new:
+      title: Введите баланс счёта

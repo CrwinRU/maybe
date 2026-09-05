@@ -33,20 +33,22 @@
     </div>
 
     <div class="grid grid-cols-3 gap-2 text-sm text-center font-medium">
-      <% Date::ABBR_MONTHNAMES.compact.each do |month_name| %>
-        <% date = Date.strptime("#{month_name}-#{year}", "%b-%Y") %>
+      <% month_labels = t("budgets.picker.months") %>
+      <% (1..12).each do |month_number| %>
+        <% date = Date.new(year, month_number, 1) %>
         <% param_key = Budget.date_to_param(date) %>
+        <% month_label = month_labels[month_number - 1] %>
 
         <% if Budget.budget_date_valid?(date, family: family) %>
           <%= render DS::Link.new(
             variant: "ghost",
-            text: month_name,
+            text: month_label,
             href: budget_path(param_key),
             full_width: true,
             frame: :_top
           ) %>
         <% else %>
-          <span class="px-3 py-2 text-subdued rounded-md"><%= month_name %></span>
+          <span class="px-3 py-2 text-subdued rounded-md"><%= month_label %></span>
         <% end %>
       <% end %>
     </div>

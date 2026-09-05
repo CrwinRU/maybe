@@ -1,0 +1,8 @@
+---
+ru:
+  invitation_mailer:
+    invite_email:
+      accept_button: Принять приглашение
+      body: "%{inviter} приглашает вас присоединиться к семье «%{family}» в FinAIzen!"
+      expiry_notice: Срок действия приглашения — %{days} дн.
+      greeting: Добро пожаловать в FinAIzen!

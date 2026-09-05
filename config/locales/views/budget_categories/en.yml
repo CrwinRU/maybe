@@ -1,0 +1,7 @@
+---
+en:
+  budget_categories:
+    no_categories:
+      title: Oops!
+      description: You have not created or assigned any expense categories to
+        your transactions yet.

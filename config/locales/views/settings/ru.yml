@@ -1,0 +1,99 @@
+---
+ru:
+  settings:
+    billings:
+      show:
+        page_title: Оплата
+        subscription_subtitle: Управление подпиской и платёжными данными
+        subscription_title: Управление подпиской
+    preferences:
+      show:
+        country: Страна
+        currency: Валюта
+        date_format: Формат даты
+        general_subtitle: Настройте параметры приложения
+        general_title: Основные
+        default_period: Период по умолчанию
+        language: Язык
+        page_title: Настройки
+        theme_dark: Тёмная
+        theme_light: Светлая
+        theme_subtitle: Выберите предпочитаемую тему оформления
+        theme_system: Системная
+        theme_title: Тема
+        timezone: Часовой пояс
+    profiles:
+      destroy:
+        cannot_remove_self: Вы не можете удалить самого себя из аккаунта
+        member_removal_failed: Не удалось удалить участника
+        member_removed: Участник успешно удалён
+        not_authorized: У вас нет прав на удаление участников
+      show:
+        confirm_delete:
+          body: Вы уверены, что хотите безвозвратно удалить свой аккаунт? Это действие
+            необратимо!
+          title: Удалить аккаунт?
+        confirm_reset:
+          body: Вы уверены, что хотите сбросить аккаунт? Будут удалены все счета,
+            категории, контрагенты, теги и прочие данные. Это действие необратимо!
+          title: Сбросить аккаунт?
+        confirm_remove_invitation:
+          body: Вы уверены, что хотите отозвать приглашение для %{email}?
+          title: Отозвать приглашение
+        confirm_remove_member:
+          body: Вы уверены, что хотите удалить %{name} из аккаунта?
+          title: Удалить участника
+        danger_zone_title: Опасная зона
+        delete_account: Удалить аккаунт
+        delete_account_warning: Удаление аккаунта безвозвратно сотрёт все ваши
+          данные, отменить это будет нельзя!
+        reset_account: Сбросить аккаунт
+        reset_account_warning: Сброс аккаунта удалит все счета, категории, контрагенты,
+          теги и прочие данные, но сохранит сам аккаунт пользователя.
+        email: Email
+        first_name: Имя
+        household_form_input_placeholder: Введите название семьи
+        household_form_label: Название семьи
+        household_subtitle: Приглашайте членов семьи, партнёров и других людей.
+          Приглашённые смогут войти в вашу семью и получить доступ к общим счетам.
+        household_title: Семья
+        invitation_link: Ссылка-приглашение
+        invite_member: Добавить участника
+        last_name: Фамилия
+        page_title: Аккаунт
+        pending: Ожидает
+        profile_subtitle: Настройте, как вы отображаетесь в FinAIzen
+        profile_title: Профиль
+        remove_invitation: Отозвать приглашение
+        remove_member: Удалить участника
+        save: Сохранить
+    securities:
+      show:
+        page_title: Безопасность
+    settings_nav:
+      accounts_label: Счета
+      api_key_label: API-ключ
+      billing_label: Оплата
+      categories_label: Категории
+      feedback_label: Обратная связь
+      general_section_title: Основные
+      imports_label: Импорт
+      logout: Выйти
+      merchants_label: Контрагенты
+      other_section_title: Ещё
+      preferences_label: Настройки
+      profile_label: Аккаунт
+      rules_label: Правила
+      security_label: Безопасность
+      self_hosting_label: Self-хостинг
+      tags_label: Теги
+      transactions_section_title: Транзакции
+      whats_new_label: Что нового
+    settings_nav_link_large:
+      next: Далее
+      previous: Назад
+    user_avatar_field:
+      accepted_formats: JPG или PNG. Максимум 5 МБ.
+      choose: Загрузить фото
+      choose_label: (необязательно)
+      change: Изменить фото

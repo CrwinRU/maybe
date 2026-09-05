@@ -1,0 +1,10 @@
+---
+ru:
+  password_mailer:
+    password_reset:
+      cta: Сбросить пароль
+      ignore_if_not_requested: Если вы не отправляли этот запрос, просто проигнорируйте
+        это письмо.
+      request_made: Поступил запрос на сброс пароля от FinAIzen. Перейдите
+        по ссылке, чтобы сбросить его.
+      subject: 'FinAIzen: сброс пароля'

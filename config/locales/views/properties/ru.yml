@@ -1,0 +1,32 @@
+---
+ru:
+  properties:
+    edit:
+      edit: Изменить %{account}
+    form:
+      address_line1: Адрес
+      address_line1_placeholder: ул. Сиреневая, д. 1
+      area: Площадь
+      area_placeholder: '80'
+      area_unit: Единица измерения
+      country: Страна
+      country_placeholder: RU
+      locality: Город
+      locality_placeholder: Москва
+      none: Нет
+      postal_code: Индекс
+      postal_code_placeholder: '101000'
+      region: Область/регион
+      region_placeholder: Московская обл.
+      subtype_prompt: Выберите тип недвижимости
+      year_built: Год постройки
+      year_built_placeholder: '2000'
+    new:
+      title: Введите данные объекта недвижимости
+    overview:
+      living_area: Жилая площадь
+      market_value: Рыночная стоимость
+      purchase_price: Цена покупки
+      trend: Динамика
+      unknown: Неизвестно
+      year_built: Год постройки

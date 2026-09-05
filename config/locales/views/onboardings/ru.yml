@@ -1,0 +1,28 @@
+---
+ru:
+  onboardings:
+    header:
+      sign_out: Выйти
+    preferences:
+      currency: Валюта
+      date_format: Формат даты
+      example: Пример счёта
+      locale: Язык
+      preview: Предпросмотр отображения данных согласно настройкам.
+      submit: Завершить
+      subtitle: Давайте настроим ваши предпочтения.
+      title: Настройте параметры
+    profile:
+      country: Страна
+      first_name: Имя
+      household_name: Название семьи
+      last_name: Фамилия
+      profile_image: Фото профиля
+      submit: Продолжить
+      subtitle: Давайте заполним ваш профиль.
+      title: Начнём с основного
+    show:
+      message: Мы очень рады, что вы здесь. На следующем шаге зададим несколько
+        вопросов, чтобы заполнить профиль и всё настроить.
+      setup: Настроить аккаунт
+      title: Знакомьтесь — FinAIzen
