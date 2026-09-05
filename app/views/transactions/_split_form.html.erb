@@ -1,0 +1,34 @@
+<%# locals: (f:, entry:) %>
+
+<section data-controller="entry-split"
+         data-entry-split-entry-amount-value="<%= entry.amount.abs %>">
+
+  <div class="flex items-center justify-between mb-2">
+    <span class="text-sm font-medium text-primary"><%= t(".title") %></span>
+    <span class="text-xs text-subdued">
+      <%= t(".total") %>:
+      <span data-entry-split-target="total"><%= entry.amount.abs %></span>
+      <%= entry.currency %>
+    </span>
+  </div>
+
+  <div data-split-rows>
+    <%= f.fields_for :entry_splits do |sf| %>
+      <%= render "transactions/split_row", sf: sf %>
+    <% end %>
+  </div>
+
+  <%# Шаблон новой строки %>
+  <template data-split-template>
+    <%= render "transactions/split_row_template", f: f %>
+  </template>
+
+  <div class="text-xs text-red-500 mt-1" data-entry-split-target="remainderWarning" hidden></div>
+
+  <button type="button"
+          class="mt-2 text-sm text-accent hover:underline"
+          data-action="click->entry-split#addRow"
+          data-entry-split-target="addButton">
+    + <%= t(".add_split") %>
+  </button>
+</section>

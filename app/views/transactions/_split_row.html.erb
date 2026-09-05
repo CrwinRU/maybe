@@ -1,0 +1,42 @@
+<%# locals: (sf:) %>
+<%# Одна строка сплита (для fields_for :entry_splits) %>
+
+<div data-entry-split-target="row" class="flex items-center gap-2 py-1">
+  <%= sf.hidden_field :id %>
+  <%= sf.hidden_field :_destroy %>
+  <input type="hidden" value="<%= sf.object&.locked ? 'true' : 'false' %>"
+         name="<%= sf.object_name %>[locked]"
+         data-entry-split-target="rowLocked">
+
+  <%= sf.collection_select :category_id,
+        Current.family.categories.alphabetically, :id, :name,
+        { prompt: t("transactions.form.category_prompt") },
+        class: "form-field__input flex-1 text-sm" %>
+
+  <div class="flex items-center gap-1">
+    <%= sf.number_field :amount,
+          step: "0.01",
+          class: "form-field__input w-28 text-sm text-right",
+          data: {
+            "entry-split-target": "rowAmount",
+            action: "input->entry-split#amountChanged"
+          } %>
+
+    <%# Замочек %>
+    <button type="button"
+            class="text-subdued hover:text-primary p-1"
+            data-action="click->entry-split#toggleLock"
+            data-locked="<%= sf.object&.locked ? 'true' : 'false' %>"
+            title="<%= t('transactions.split_form.lock') %>">
+      <%= icon "lock" %>
+    </button>
+
+    <%# Удалить строку %>
+    <button type="button"
+            class="text-subdued hover:text-red-500 p-1"
+            data-action="click->entry-split#removeRow"
+            title="<%= t('transactions.split_form.remove') %>">
+      <%= icon "x" %>
+    </button>
+  </div>
+</div>
