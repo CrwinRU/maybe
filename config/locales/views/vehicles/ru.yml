@@ -1,0 +1,25 @@
+---
+ru:
+  vehicles:
+    edit:
+      edit: Изменить %{account}
+    form:
+      make: Марка
+      make_placeholder: Toyota
+      mileage: Пробег
+      mileage_placeholder: '15000'
+      mileage_unit: Единица измерения
+      model: Модель
+      model_placeholder: Camry
+      year: Год выпуска
+      year_placeholder: '2023'
+    new:
+      title: Введите данные автомобиля
+    overview:
+      current_price: Текущая стоимость
+      make_model: Марка и модель
+      mileage: Пробег
+      purchase_price: Цена покупки
+      trend: Динамика
+      unknown: Неизвестно
+      year: Год выпуска

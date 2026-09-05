@@ -1,0 +1,71 @@
+---
+en:
+  budgets:
+    picker:
+      months:
+        - Jan
+        - Feb
+        - Mar
+        - Apr
+        - May
+        - Jun
+        - Jul
+        - Aug
+        - Sep
+        - Oct
+        - Nov
+        - Dec
+    month_names:
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    budget_categories:
+      categories: Categories
+      amount: Amount
+    show:
+      budgeted_tab: Budgeted
+      actuals_tab: Actual
+      categories_title: Categories
+      edit: Edit
+    budget_header:
+      today: Today
+    budget_nav:
+      setup_step: Setup
+      categories_step: Categories
+    budgeted_summary:
+      expected_income: Expected income
+      earned: earned
+      over: over
+      left: left
+      budgeted: Budgeted
+      spent: spent
+    actuals_summary:
+      income: Income
+      expenses: Expenses
+    budget_donut:
+      spent: Spent
+      of: "of %{amount}"
+      new_budget: New budget
+      unused: Unused
+    over_allocation_warning:
+      description: You have over-allocated your budget. Please fix your allocations.
+      cta: Fix allocations
+    edit:
+      title: Setup your budget
+      subtitle: Enter your monthly earnings and planned spending below to setup
+        your budget.
+      budgeted_spending_label: Budgeted spending
+      expected_income_label: Expected income
+      autosuggest_title: "Autosuggest income & spending budget"
+      autosuggest_description: This will be based on transaction history. AI can
+        make mistakes, verify before continuing.
+      continue: Continue

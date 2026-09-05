@@ -1,0 +1,10 @@
+---
+ru:
+  email_confirmation_mailer:
+    confirmation_email:
+      body: Вы недавно запросили смену email-адреса. Нажмите кнопку ниже, чтобы
+        подтвердить изменение.
+      cta: Подтвердить смену email
+      expiry_notice: Срок действия ссылки — %{hours} ч.
+      greeting: Здравствуйте!
+      subject: 'FinAIzen: подтвердите смену email'

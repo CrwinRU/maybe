@@ -1,0 +1,16 @@
+---
+ru:
+  sessions:
+    create:
+      invalid_credentials: Неверный email или пароль
+    destroy:
+      logout_successful: Вы успешно вышли из аккаунта
+    new:
+      email: Email
+      email_placeholder: you@example.com
+      forgot_password: Забыли пароль?
+      password: Пароль
+      submit: Войти
+      title: Вход в аккаунт
+      password_placeholder: Введите пароль
+      webauthn_submit: Войти по Face ID

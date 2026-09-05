@@ -1,0 +1,72 @@
+---
+ru:
+  accounts:
+    account_sidebar_tabs:
+      assets: Активы
+      debts: Обязательства
+      all: Все
+      new_asset: Новый актив
+      new_debt: Новое обязательство
+      new_account: Новый счёт
+    account:
+      troubleshoot: Диагностика
+    chart:
+      data_not_available: Нет данных за выбранный период
+    create:
+      success: "Счёт «%{type}» создан"
+    destroy:
+      success: "Счёт «%{type}» поставлен в очередь на удаление"
+    empty:
+      empty_message: Добавьте счёт через подключение, импорт или вручную.
+      new_account: Новый счёт
+      no_accounts: Пока нет счетов
+    form:
+      balance: Текущий баланс
+      name_label: Название счёта
+      name_placeholder: Например, «Основная карта»
+    index:
+      accounts: Счета
+      manual_accounts:
+        other_accounts: Другие счета
+      new_account: Новый счёт
+      sync: Синхронизировать всё
+    new:
+      import_accounts: Импортировать счета
+      method_selector:
+        connected_entry: Подключить счёт
+        connected_entry_eu: Подключить счёт (ЕС)
+        manual_entry: Ввести баланс вручную
+        title: Как вы хотите его добавить?
+      title: Что вы хотите добавить?
+    show:
+      activity:
+        amount: Сумма
+        balance: Баланс
+        date: Дата
+        entries: записей
+        entry: запись
+        new: Новое
+        new_balance: Новый баланс
+        new_transaction: Новая транзакция
+        no_entries: Записи не найдены
+        title: Активность
+      chart:
+        balance: Баланс
+        owed: Сумма задолженности
+      menu:
+        confirm_accept: 'Удалить «%{name}»'
+        confirm_body_html: "<p>Удаление этого счёта сотрёт всю историю его транзакций,
+          что повлияет на разные показатели вашего аккаунта. Это напрямую скажется
+          на расчёте капитала и графиках по счетам.</p><br /> <p>После удаления
+          восстановить данные счёта будет невозможно — его придётся добавлять
+          заново!</p>"
+        confirm_title: Удалить счёт?
+        edit: Изменить
+        import: Импортировать транзакции
+        manage: Управление счетами
+    update:
+      success: "Счёт «%{type}» обновлён"
+  email_confirmations:
+    new:
+      invalid_token: Ссылка для подтверждения недействительна или истекла
+      success_login: Email подтверждён. Войдите с новым email-адресом.

@@ -1,0 +1,21 @@
+---
+ru:
+  pages:
+    changelog:
+      title: Что нового
+    dashboard:
+      welcome_back: Добро пожаловать, %{name}
+      subtitle: Вот что происходит с вашими финансами
+      new: Новый
+      no_accounts_graph_placeholder:
+        no_accounts_title: Счетов пока нет
+        no_accounts_subtitle: Добавьте счета для отображения данных о капитале
+        add_account: Добавить счёт
+      net_worth_chart:
+        data_not_available: Нет данных за выбранный период
+        title: Капитал
+      no_account_empty_state:
+        new_account: Новый счёт
+        no_account_subtitle: Счета ещё не добавлены, поэтому показывать нечего.
+          Добавьте первый счёт, чтобы увидеть данные на дашборде.
+        no_account_title: Пока нет счетов

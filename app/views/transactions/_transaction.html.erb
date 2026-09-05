@@ -4,7 +4,15 @@
 
 <%= turbo_frame_tag dom_id(entry) do %>
   <%= turbo_frame_tag dom_id(transaction) do %>
-    <div class="grid grid-cols-12 items-center text-primary text-sm font-medium p-4 lg:p-4 <%= entry.excluded ? "opacity-50 text-gray-400" : "" %>">
+    <%# Скрытая форма для тогла reconciled_at — отправляется при тапе по строке в режиме сверки %>
+    <%= form_with url: transaction_reconciliation_path(transaction),
+                  method: :patch,
+                  data: { "reconciliation-form": true, turbo_frame: dom_id(entry) },
+                  class: "hidden" do %>
+    <% end %>
+
+    <div class="grid grid-cols-12 items-center text-primary text-sm font-medium p-4 lg:p-4 <%= entry.excluded ? "opacity-50 text-gray-400" : "" %>"
+         data-action="click->reconciliation#toggleRow">
 
       <div class="pr-4 lg:pr-10 flex items-center gap-3 lg:gap-4 col-span-8">
         <%= check_box_tag dom_id(entry, "selection"),
@@ -93,7 +101,15 @@
         <%= render "transactions/transaction_category", transaction: transaction %>
       </div>
 
-      <div class="col-span-2 ml-auto text-right">
+      <div class="col-span-2 ml-auto text-right flex items-center justify-end gap-2">
+        <%# Иконка статуса сверки — видна только в режиме сверки (CSS: body.reconciliation-mode) %>
+        <span class="reconciliation-status hidden" title="<%= entry.reconciled_at.present? ? t('transactions.reconciliation.mark_unreconciled') : t('transactions.reconciliation.mark_reconciled') %>">
+          <% if entry.reconciled_at.present? %>
+            <%= icon "check-circle", size: "sm", class: "text-green-500" %>
+          <% else %>
+            <%= icon "circle", size: "sm", class: "text-gray-300" %>
+          <% end %>
+        </span>
         <%= content_tag :p,
             transaction.transfer? && view_ctx == "global" ? "+/- #{format_money(entry.amount_money.abs)}" : format_money(-entry.amount_money),
             class: ["text-green-600": entry.amount.negative?] %>

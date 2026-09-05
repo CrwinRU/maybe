@@ -1,0 +1,40 @@
+---
+ru:
+  settings:
+    hostings:
+      invite_code_settings:
+        description: Каждый новый пользователь вашего инстанса FinAIzen может
+          присоединиться только по инвайт-коду
+        email_confirmation_description: Если включено, пользователи должны подтверждать
+          email при его изменении.
+        email_confirmation_title: Требовать подтверждение email
+        generate_tokens: Сгенерировать новый код
+        generated_tokens: Сгенерированные коды
+        title: Требовать инвайт-код для регистрации
+      show:
+        general: Основные настройки
+        invites: Инвайт-коды
+        title: Self-хостинг
+        danger_zone: Опасная зона
+        clear_cache: Очистить кэш данных
+        clear_cache_warning: Очистка кэша данных удалит все курсы валют, цены
+          бумаг, балансы счетов и прочие вычисляемые данные. Сами счета, транзакции,
+          категории и другие данные пользователя удалены не будут.
+        confirm_clear_cache:
+          title: Очистить кэш данных?
+          body: Вы уверены, что хотите очистить кэш данных? Будут удалены все
+            курсы валют, цены бумаг, балансы счетов и прочие данные. Это действие
+            необратимо!
+      synth_settings:
+        api_calls_used: "Использовано API-вызовов: %{used} / %{limit} (%{percentage})"
+        description: Введите API-ключ, предоставленный Synth
+        label: API-ключ
+        placeholder: Введите свой API-ключ
+        plan: "Тариф %{plan}"
+        title: Настройки Synth
+      update:
+        failure: Некорректное значение настройки
+        success: Настройки обновлены
+      clear_cache:
+        cache_cleared: Кэш данных очищен. Это может занять некоторое время.
+      not_authorized: У вас нет прав на это действие

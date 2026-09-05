@@ -1,0 +1,93 @@
+---
+ru:
+  import:
+    cleans:
+      show:
+        description: Отредактируйте данные в таблице ниже. Красные ячейки —
+          с ошибками.
+        errors_notice: В данных есть ошибки. Наведите курсор на ошибку, чтобы
+          увидеть детали.
+        errors_notice_mobile: В данных есть ошибки. Нажмите на ошибку, чтобы
+          увидеть детали.
+        title: Очистите данные
+    configurations:
+      mint_import:
+        date_format_label: Формат даты
+      show:
+        description: Укажите, какие столбцы CSV соответствуют каждому полю.
+        title: Настройте импорт
+      trade_import:
+        date_format_label: Формат даты
+      transaction_import:
+        date_format_label: Формат даты
+    confirms:
+      mappings:
+        create_account: Создать счёт
+        csv_mapping_label: "%{mapping} в CSV"
+        maybe_mapping_label: "%{mapping} в FinAIzen"
+        no_accounts: У вас пока нет ни одного счёта. Создайте счёт, который
+          можно использовать для неразмеченных строк CSV, либо вернитесь на
+          шаг очистки и укажите название счёта.
+        rows_label: Строки
+        unassigned_account: Нужно создать новый счёт для неразмеченных строк?
+      show:
+        account_mapping_description: Сопоставьте счета из импортируемого файла
+          с существующими счетами в FinAIzen. Можно также добавить новые счета
+          или оставить их без категории.
+        account_mapping_title: Сопоставьте счета
+        account_type_mapping_description: Сопоставьте типы счетов из импортируемого
+          файла с типами в FinAIzen
+        account_type_mapping_title: Сопоставьте типы счетов
+        category_mapping_description: Сопоставьте категории из импортируемого
+          файла с существующими категориями в FinAIzen. Можно также добавить
+          новые категории или оставить их без категории.
+        category_mapping_title: Сопоставьте категории
+        tag_mapping_description: Сопоставьте теги из импортируемого файла с
+          существующими тегами в FinAIzen. Можно также добавить новые теги
+          или оставить их без тега.
+        tag_mapping_title: Сопоставьте теги
+    uploads:
+      show:
+        description: Вставьте или загрузите CSV-файл ниже. Перед началом ознакомьтесь
+          с инструкциями в таблице.
+        instructions_1: Ниже — пример CSV с доступными для импорта столбцами.
+        instructions_2: В CSV должна быть строка заголовков
+        instructions_3: Столбцы можно называть как угодно — сопоставление произойдёт
+          на следующем шаге.
+        instructions_4: Столбцы, отмеченные звёздочкой (*), обязательны для
+          заполнения.
+        instructions_5: В числах не должно быть запятых, символов валюты и
+          скобок.
+        title: Импортируйте данные
+  imports:
+    empty:
+      message: Импортов пока нет
+      new: Новый импорт
+    import:
+      complete: Завершён
+      delete: Удалить
+      failed: Не удалось
+      in_progress: В процессе
+      label: "%{type}: %{datetime}"
+      revert_failed: Не удалось отменить
+      reverting: Отмена импорта...
+      uploading: Обработка строк...
+      view: Просмотр
+    index:
+      imports: Импорты
+      new: Новый импорт
+      title: Импорты
+    new:
+      description: Вы можете вручную импортировать данные через CSV или использовать
+        один из готовых шаблонов, например Mint.
+      import_accounts: Импортировать счета
+      import_mint: Импорт из Mint
+      import_portfolio: Импортировать инвестиции
+      import_transactions: Импортировать транзакции
+      resume: Продолжить %{type}
+      sources: Источники
+      title: Новый CSV-импорт
+    ready:
+      description: Вот сводка новых записей, которые будут добавлены в ваш
+        аккаунт после публикации импорта.
+      title: Подтвердите данные импорта

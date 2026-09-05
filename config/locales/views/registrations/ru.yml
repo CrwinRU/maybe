@@ -1,0 +1,25 @@
+---
+ru:
+  helpers:
+    label:
+      user:
+        invite_code: Код приглашения
+    submit:
+      user:
+        create: Продолжить
+  registrations:
+    create:
+      failure: Не удалось зарегистрироваться
+      invalid_invite_code: Неверный код приглашения, попробуйте снова
+      success: Вы успешно зарегистрировались
+    new:
+      invitation_message: "%{inviter} приглашает вас присоединиться в роли %{role}"
+      join_family_title: Присоединиться к %{family}
+      role_admin: администратор
+      role_member: участник
+      submit: Создать аккаунт
+      title: Создайте аккаунт
+      welcome_body: Чтобы начать, зарегистрируйте новый аккаунт. После этого вы
+        сможете настроить дополнительные параметры внутри приложения.
+      welcome_title: Добро пожаловать в FinAIzen!
+      password_placeholder: Введите пароль

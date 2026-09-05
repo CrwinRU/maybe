@@ -1,0 +1,13 @@
+---
+ru:
+  users:
+    destroy:
+      success: Ваш аккаунт удалён
+    update:
+      email_change_failed: Не удалось изменить email
+      email_change_initiated: Проверьте новый email — там инструкции для подтверждения
+      success: Профиль обновлён
+    reset:
+      success: Аккаунт сброшен. Данные будут удалены в фоновом режиме через
+        некоторое время.
+      unauthorized: У вас нет прав на это действие

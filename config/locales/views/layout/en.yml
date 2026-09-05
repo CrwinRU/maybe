@@ -1,6 +1,9 @@
----
 en:
   layouts:
+    application:
+      home: Home
+      transactions: Transactions
+      budgets: Budgets
     auth:
       existing_account: Already have an account?
       no_account: New to Maybe?
@@ -11,3 +14,14 @@ en:
       footer:
         privacy_policy: Privacy Policy
         terms_of_service: Terms of Service
+  breadcrumbs:
+    transactions: Transactions
+    accounts: Accounts
+    budgets: Budgets
+    imports: Imports
+    settings: Settings
+    categories: Categories
+    tags: Tags
+    merchants: Merchants
+    rules: Rules
+    pages: Home

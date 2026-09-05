@@ -1,0 +1,18 @@
+---
+ru:
+  investments:
+    edit:
+      edit: Изменить %{account}
+    form:
+      none: Нет
+      subtype_prompt: Выберите тип инвестиционного счёта
+    new:
+      title: Введите баланс счёта
+    show:
+      chart_title: Общая стоимость
+    value_tooltip:
+      cash: Наличные
+      holdings: Активы
+      total: Баланс портфеля
+      total_value_tooltip: Общий баланс портфеля — это сумма брокерских наличных
+        (доступных для торговли) и текущей рыночной стоимости ваших активов.

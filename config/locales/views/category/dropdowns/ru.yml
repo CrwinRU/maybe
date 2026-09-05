@@ -1,0 +1,11 @@
+---
+ru:
+  category:
+    dropdowns:
+      row:
+        delete: Удалить категорию
+        edit: Изменить категорию
+      show:
+        clear: Очистить категорию
+        no_categories: Категории не найдены
+        search_placeholder: Поиск

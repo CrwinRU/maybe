@@ -124,6 +124,11 @@ Rails.application.routes.draw do
   namespace :transactions do
     resource :bulk_deletion, only: :create
     resource :bulk_update, only: %i[new create]
+    resource :bulk_reconciliation, only: :create
+  end
+
+  resources :transactions, only: [] do
+    resource :reconciliation, only: :update, module: :transactions
   end
 
   resources :transactions, only: %i[index new create show update destroy] do

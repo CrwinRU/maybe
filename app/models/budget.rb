@@ -95,7 +95,7 @@ class Budget < ApplicationRecord
   end
 
   def name
-    start_date.strftime("%B %Y")
+    I18n.t("budgets.month_names")[start_date.month - 1] + " " + start_date.year.to_s
   end
 
   def initialized?

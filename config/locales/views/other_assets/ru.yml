@@ -1,0 +1,7 @@
+---
+ru:
+  other_assets:
+    edit:
+      edit: Изменить %{account}
+    new:
+      title: Введите данные актива

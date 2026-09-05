@@ -1,0 +1,72 @@
+---
+ru:
+  budgets:
+    picker:
+      months:
+        - Янв
+        - Февр
+        - Март
+        - Апр
+        - Май
+        - Июнь
+        - Июль
+        - Авг
+        - Сент
+        - Окт
+        - Нояб
+        - Дек
+    month_names:
+      - Январь
+      - Февраль
+      - Март
+      - Апрель
+      - Май
+      - Июнь
+      - Июль
+      - Август
+      - Сентябрь
+      - Октябрь
+      - Ноябрь
+      - Декабрь
+    budget_categories:
+      categories: Категории
+      amount: Сумма
+    show:
+      budgeted_tab: Запланировано
+      actuals_tab: Фактически
+      categories_title: Категории
+      edit: Изменить
+    budget_header:
+      today: Сегодня
+    budget_nav:
+      setup_step: Настройка
+      categories_step: Категории
+    budgeted_summary:
+      expected_income: Ожидаемый доход
+      earned: получено
+      over: сверх плана
+      left: осталось
+      budgeted: Запланировано
+      spent: потрачено
+    actuals_summary:
+      income: Доход
+      expenses: Расход
+    budget_donut:
+      spent: Потрачено
+      of: "из %{amount}"
+      new_budget: Новый бюджет
+      unused: Неиспользовано
+    over_allocation_warning:
+      description: Бюджет распределён с превышением. Скорректируйте распределение
+        по категориям
+      cta: Скорректировать распределение
+    edit:
+      title: Настройте бюджет
+      subtitle: Укажите ожидаемый доход и планируемые расходы, чтобы настроить
+        бюджет
+      budgeted_spending_label: Плановые расходы
+      expected_income_label: Ожидаемый доход
+      autosuggest_title: "Автоподбор дохода и расходов"
+      autosuggest_description: Расчёт на основе истории транзакций. ИИ может ошибаться
+        — проверьте перед тем, как продолжить
+      continue: Продолжить
