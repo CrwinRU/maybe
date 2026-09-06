@@ -40,8 +40,6 @@
       </button>
     </div>
 
-    <%= f.text_field :name, label: t(".description"), placeholder: t(".description_placeholder"), required: true %>
-
     <% if entry.account_id.present? %>
       <%= f.hidden_field :account_id %>
     <% else %>
@@ -65,6 +63,8 @@
             class: "pl-8",
             data: { "transaction-form-target": "amountInput" } %>
     </div>
+
+    <%= f.text_field :name, label: t(".description"), placeholder: t(".description_placeholder"), required: true %>
 
     <%# Категории — все категории семьи, не фильтруются по вкладке %>
     <%= f.fields_for :entryable do |ef| %>
