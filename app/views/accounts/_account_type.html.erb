@@ -7,5 +7,5 @@
     hex_color: accountable.color,
   ) %>
 
-  <%= t("accountable.types.#{accountable.class.name.underscore}") %>
+  <%= accountable.model_name.human %>
 <% end %>

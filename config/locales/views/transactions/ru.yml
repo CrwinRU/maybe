@@ -16,6 +16,7 @@ ru:
       date: Дата
       description: Описание
       description_placeholder: Опишите транзакцию
+      details: Детали
       expense: Расход
       income: Доход
       none: (нет)
