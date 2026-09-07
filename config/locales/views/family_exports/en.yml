@@ -1,0 +1,9 @@
+---
+en:
+  family_exports:
+    create:
+      started: "Export started. You'll be able to download it shortly."
+    download:
+      not_ready: Export not ready for download
+    require_admin:
+      access_denied: Access denied

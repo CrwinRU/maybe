@@ -1,6 +1,10 @@
 ---
 ru:
   valuations:
+    create:
+      updated: Счёт обновлён
+    update:
+      updated: Запись обновлена
     form:
       amount: Сумма
       submit: Добавить обновление баланса

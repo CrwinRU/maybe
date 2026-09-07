@@ -1,8 +1,12 @@
 ---
 en:
   import:
+    confirms:
+      show:
+        invalid_data: You have invalid data, please edit until all errors are resolved
     cleans:
       show:
+        not_configured: Please configure your import before proceeding.
         description: Edit your data in the table below.  Red cells are invalid.
         errors_notice: You have errors in your data.  Hover over the error to see
           details.

@@ -1,0 +1,9 @@
+---
+ru:
+  family_exports:
+    create:
+      started: Экспорт запущен. Файл будет доступен для скачивания в ближайшее время.
+    download:
+      not_ready: Экспорт ещё не готов для скачивания
+    require_admin:
+      access_denied: Доступ запрещён

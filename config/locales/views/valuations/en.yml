@@ -1,6 +1,10 @@
 ---
 en:
   valuations:
+    create:
+      updated: Account updated
+    update:
+      updated: Entry updated
     form:
       amount: Amount
       submit: Add balance update

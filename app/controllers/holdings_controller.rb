@@ -10,7 +10,7 @@ class HoldingsController < ApplicationController
 
   def destroy
     if @holding.account.plaid_account_id.present?
-      flash[:alert] = "You cannot delete this holding"
+      flash[:alert] = t(".linked_error")
     else
       @holding.destroy_holding_and_entries!
       flash[:notice] = t(".success")

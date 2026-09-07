@@ -5,6 +5,7 @@ ru:
       brokerage_cash: Брокерские наличные
     destroy:
       success: Актив удалён
+      linked_error: Нельзя удалить этот актив
     holding:
       per_share: за акцию
       shares: "%{qty} шт."

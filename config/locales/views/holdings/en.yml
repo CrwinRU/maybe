@@ -5,6 +5,7 @@ en:
       brokerage_cash: Brokerage cash
     destroy:
       success: Holding deleted
+      linked_error: You cannot delete this holding
     holding:
       per_share: per share
       shares: "%{qty} shares"
