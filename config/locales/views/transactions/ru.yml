@@ -25,6 +25,7 @@ ru:
       submit: Добавить транзакцию
       tags_label: Теги
       transfer: Перевод
+      split: Разбивка
     new:
       new_transaction: Новая транзакция
     show:

@@ -25,6 +25,7 @@ en:
       submit: Add transaction
       tags_label: Tags
       transfer: Transfer
+      split: Split
     new:
       new_transaction: New transaction
     show:

@@ -1,34 +1,44 @@
 <%# locals: (f:, entry:) %>
+<% split_total = entry.amount&.abs || 0 %>
 
-<section data-controller="entry-split"
-         data-entry-split-entry-amount-value="<%= entry.amount.abs %>">
+<section
+  data-controller="split-form"
+  data-split-form-total-value="<%= split_total %>"
+  class="space-y-3 border border-alpha-black-100 rounded-lg p-3">
 
-  <div class="flex items-center justify-between mb-2">
-    <span class="text-sm font-medium text-primary"><%= t(".title") %></span>
+  <div class="flex items-center justify-between">
+    <span class="text-sm font-medium"><%= t(".title") %></span>
     <span class="text-xs text-subdued">
       <%= t(".total") %>:
-      <span data-entry-split-target="total"><%= entry.amount.abs %></span>
-      <%= entry.currency %>
+      <span data-split-form-target="totalDisplay" class="font-mono font-semibold"></span>
     </span>
   </div>
 
-  <div data-split-rows>
-    <%= f.fields_for :entry_splits do |sf| %>
-      <%= render "transactions/split_row", sf: sf %>
+  <div data-split-form-target="linesContainer" class="space-y-2">
+    <% splits = entry.persisted? ? entry.entry_splits.ordered : [] %>
+    <% splits.each do |split| %>
+      <%= f.fields_for :entry_splits, split do |sf| %>
+        <%= render "transactions/split_line", sf: sf, entry: entry %>
+      <% end %>
     <% end %>
   </div>
 
-  <%# Шаблон новой строки %>
-  <template data-split-template>
-    <%= render "transactions/split_row_template", f: f %>
+  <%# Шаблон новой строки (hidden, клонируется JS) %>
+  <template data-split-form-target="lineTemplate">
+    <%= f.fields_for :entry_splits, EntrySplit.new(position: 0, locked: false), child_index: "NEW_RECORD" do |sf| %>
+      <%= render "transactions/split_line", sf: sf, entry: entry %>
+    <% end %>
   </template>
 
-  <div class="text-xs text-red-500 mt-1" data-entry-split-target="remainderWarning" hidden></div>
+  <div class="flex items-center justify-between pt-1">
+    <button type="button"
+            class="text-sm text-primary hover:underline"
+            data-action="click->split-form#addLine">
+      + <%= t(".add_split") %>
+    </button>
+    <span data-split-form-target="mismatchWarning"
+          class="text-xs text-red-500 hidden">
+    </span>
+  </div>
 
-  <button type="button"
-          class="mt-2 text-sm text-accent hover:underline"
-          data-action="click->entry-split#addRow"
-          data-entry-split-target="addButton">
-    + <%= t(".add_split") %>
-  </button>
 </section>

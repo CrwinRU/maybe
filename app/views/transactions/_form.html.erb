@@ -99,10 +99,22 @@
                     } %>
   <% end %>
 
-  <%# Сплит транзакции %>
-  <% if entry.persisted? && entry.split? %>
-    <%= render "transactions/split_form", f: f, entry: entry %>
+  <%# Кнопка Сплит — показывается если нет активных сплитов %>
+  <% unless entry.persisted? && entry.split? %>
+    <div>
+      <button type="button"
+              class="text-sm text-subdued hover:text-primary transition-colors"
+              data-action="click->transaction-form#activateSplit">
+        ⊕ <%= t(".split") %>
+      </button>
+    </div>
   <% end %>
+
+  <%# Сплит транзакции %>
+  <div data-transaction-form-target="splitSection"
+       class="<%= (entry.persisted? && entry.split?) ? '' : 'hidden' %>">
+    <%= render "transactions/split_form", f: f, entry: entry %>
+  </div>
 
   <section>
     <%= f.submit t(".submit") %>

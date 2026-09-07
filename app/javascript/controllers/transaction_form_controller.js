@@ -10,7 +10,8 @@ export default class extends Controller {
     "categorySelect",
     "notesInput",
     "accountSelect",
-    "merchantInput"
+    "merchantInput",
+    "splitSection"
   ]
 
   static values = {
@@ -77,6 +78,23 @@ export default class extends Controller {
       this.amountSignTarget.textContent = nature === "inflow" ? "+" : "−"
       this.amountSignTarget.dataset.nature = nature
     }
+  }
+
+  // Показать секцию сплита и добавить 2 строки через событие
+  activateSplit(event) {
+    event.currentTarget.closest("div")?.remove()
+    if (!this.hasSplitSectionTarget) return
+
+    this.splitSectionTarget.classList.remove("hidden")
+
+    // Ждём один тик — Stimulus успевает подключить split-form контроллер
+    // на только что показанном элементе, затем диспатчим событие
+    requestAnimationFrame(() => {
+      const section = this.splitSectionTarget.querySelector("[data-controller='split-form']")
+      if (section) {
+        section.dispatchEvent(new CustomEvent("split-form:activate", { bubbles: false }))
+      }
+    })
   }
 
   _accountId() {
