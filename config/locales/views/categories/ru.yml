@@ -10,6 +10,8 @@ ru:
       success: Категория создана
     destroy:
       success: Категория удалена
+    destroy_all:
+      all_deleted: Все категории удалены
     edit:
       edit: Изменить категорию
     form:

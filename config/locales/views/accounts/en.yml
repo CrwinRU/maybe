@@ -3,12 +3,18 @@ en:
   accounts:
     account:
       troubleshoot: Troubleshoot
+      deletion_in_progress: deletion in progress...
+      complete_setup: Complete setup
     chart:
       data_not_available: Data not available for the selected period
     create:
       success: "%{type} account created"
+    sync_all:
+      syncing: Syncing accounts...
     destroy:
       success: "%{type} account scheduled for deletion"
+      linked_error: Cannot delete a linked account
+      scheduled: Account scheduled for deletion
     empty:
       empty_message: Add an account either via connection, importing or entering manually.
       new_account: New account
@@ -47,6 +53,9 @@ en:
         balance: Balance
         owed: Amount owed
       menu:
+        edit: Edit
+        import: Import transactions
+        delete: Delete account
         confirm_accept: Delete "%{name}"
         confirm_body_html: "<p>By deleting this account, you will erase its value
           history, affecting various aspects of your overall account. This action

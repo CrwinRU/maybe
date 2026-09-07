@@ -11,6 +11,7 @@ en:
         subtype: Subtype
     models:
       account: Account
+      account/cash: Cash
       account/credit: Credit Card
       account/depository: Bank Account
       account/investment: Investment

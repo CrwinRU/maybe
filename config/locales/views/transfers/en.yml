@@ -3,6 +3,7 @@ en:
   transfers:
     create:
       success: Transfer created
+      created: Transfer created
     destroy:
       success: Transfer removed
     form:

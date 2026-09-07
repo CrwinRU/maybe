@@ -21,10 +21,9 @@ class TransfersController < ApplicationController
     ).create
 
     if @transfer.persisted?
-      success_message = "Transfer created"
       respond_to do |format|
-        format.html { redirect_back_or_to transactions_path, notice: success_message }
-        format.turbo_stream { stream_redirect_back_or_to transactions_path, notice: success_message }
+        format.html { redirect_back_or_to transactions_path, notice: t(".created") }
+        format.turbo_stream { stream_redirect_back_or_to transactions_path, notice: t(".created") }
       end
     else
       render :new, status: :unprocessable_entity

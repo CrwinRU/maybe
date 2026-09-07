@@ -1,5 +1,8 @@
 ---
 en:
+  time:
+    formats:
+      import: "%b %-d, %Y at %-l:%M %p"
   number:
     currency:
       format:

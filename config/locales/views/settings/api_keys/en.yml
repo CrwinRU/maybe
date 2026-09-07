@@ -11,6 +11,11 @@ en:
         read_balances: "View Balances"
         write_transactions: "Create Transactions"
     api_keys:
+      create:
+        created: API key created successfully
+      destroy:
+        revoked: API key revoked successfully
+        revoke_failed: Failed to revoke API key
       show:
         title: "API Key Management"
       no_api_key:

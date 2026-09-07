@@ -3,6 +3,7 @@ ru:
   transfers:
     create:
       success: Перевод создан
+      created: Перевод создан
     destroy:
       success: Перевод удалён
     form:

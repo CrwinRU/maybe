@@ -69,6 +69,12 @@ en:
       reverting: Reverting
       uploading: Processing rows
       view: View
+      revert_confirm_title: Revert import?
+      revert_confirm_body: This will delete the imported transactions. You can still review and re-import your data at any time.
+      type_transaction: Transactions
+      type_trade: Investments
+      type_mint: Mint
+      type_account: Accounts
     index:
       imports: Imports
       new: New import

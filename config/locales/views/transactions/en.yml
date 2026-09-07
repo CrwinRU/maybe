@@ -1,6 +1,19 @@
 ---
 en:
   transactions:
+    selection_bar:
+      edit: Edit
+      delete: Delete
+    transaction:
+      loan_payment: Loan Payment
+      transfer: Transfer
+      one_time: "One-time %{kind} (excluded from averages)"
+      income: income
+      expense: expense
+    create:
+      created: Transaction created
+    update:
+      updated: Transaction updated
     split_form:
       title: Split transaction
       total: Total

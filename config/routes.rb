@@ -197,6 +197,7 @@ Rails.application.routes.draw do
   resources :cryptos, only: %i[new create edit update]
   resources :other_assets, only: %i[new create edit update]
   resources :other_liabilities, only: %i[new create edit update]
+  resources :cashes, only: %i[new create edit update]
 
   resources :securities, only: :index
 

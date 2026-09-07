@@ -1,6 +1,14 @@
 ---
 ru:
   rules:
+    apply:
+      activated: Правило активировано
+    update:
+      updated: Правило обновлено
+    destroy:
+      deleted: Правило удалено
+    destroy_all:
+      all_deleted: Все правила удалены
     index:
       title: Правила
       new: Новое правило

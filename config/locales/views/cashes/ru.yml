@@ -1,0 +1,7 @@
+---
+ru:
+  cashes:
+    edit:
+      edit: Изменить %{account}
+    new:
+      title: Введите сумму наличных

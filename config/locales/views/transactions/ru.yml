@@ -1,6 +1,19 @@
 ---
 ru:
   transactions:
+    selection_bar:
+      edit: Изменить
+      delete: Удалить
+    transaction:
+      loan_payment: Погашение по кредиту
+      transfer: Перевод
+      one_time: "Разовая %{kind} (не учитывается в среднем)"
+      income: доходная транзакция
+      expense: расходная транзакция
+    create:
+      created: Транзакция создана
+    update:
+      updated: Транзакция обновлена
     split_form:
       title: Разбивка транзакции
       total: Итого

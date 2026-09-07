@@ -1,0 +1,7 @@
+---
+en:
+  cashes:
+    edit:
+      edit: Edit %{account}
+    new:
+      title: Enter cash balance

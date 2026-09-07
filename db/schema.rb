@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
+ActiveRecord::Schema[7.2].define(version: 2026_09_07_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -18,6 +18,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "account_status", ["ok", "syncing", "error"]
+
+  create_table "account_groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "family_id", null: false
+    t.string "name", null: false
+    t.integer "position", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id", "name"], name: "index_account_groups_on_family_id_and_name", unique: true
+    t.index ["family_id"], name: "index_account_groups_on_family_id"
+  end
 
   create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "subtype"
@@ -29,12 +39,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.uuid "accountable_id"
     t.decimal "balance", precision: 19, scale: 4
     t.string "currency"
-    t.virtual "classification", type: :string, as: "\nCASE\n    WHEN ((accountable_type)::text = ANY ((ARRAY['Loan'::character varying, 'CreditCard'::character varying, 'OtherLiability'::character varying])::text[])) THEN 'liability'::text\n    ELSE 'asset'::text\nEND", stored: true
+    t.virtual "classification", type: :string, as: "\nCASE\n    WHEN ((accountable_type)::text = ANY (ARRAY[('Loan'::character varying)::text, ('CreditCard'::character varying)::text, ('OtherLiability'::character varying)::text])) THEN 'liability'::text\n    ELSE 'asset'::text\nEND", stored: true
     t.uuid "import_id"
     t.uuid "plaid_account_id"
     t.decimal "cash_balance", precision: 19, scale: 4, default: "0.0"
     t.jsonb "locked_attributes", default: {}
     t.string "status", default: "active"
+    t.uuid "account_group_id"
+    t.boolean "include_in_group_balance", default: true, null: false
+    t.index ["account_group_id"], name: "index_accounts_on_account_group_id"
     t.index ["accountable_id", "accountable_type"], name: "index_accounts_on_accountable_id_and_accountable_type"
     t.index ["accountable_type"], name: "index_accounts_on_accountable_type"
     t.index ["currency"], name: "index_accounts_on_currency"
@@ -159,6 +172,11 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.index ["family_id"], name: "index_budgets_on_family_id"
   end
 
+  create_table "cashes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.string "color", default: "#6172F3", null: false
@@ -224,7 +242,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.uuid "entryable_id"
     t.decimal "amount", precision: 19, scale: 4, null: false
     t.string "currency"
-    t.date "date"
+    t.datetime "date"
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -233,12 +251,26 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.boolean "excluded", default: false
     t.string "plaid_id"
     t.jsonb "locked_attributes", default: {}
+    t.datetime "reconciled_at"
     t.index "lower((name)::text)", name: "index_entries_on_lower_name"
     t.index ["account_id", "date"], name: "index_entries_on_account_id_and_date"
     t.index ["account_id"], name: "index_entries_on_account_id"
     t.index ["date"], name: "index_entries_on_date"
     t.index ["entryable_type"], name: "index_entries_on_entryable_type"
     t.index ["import_id"], name: "index_entries_on_import_id"
+  end
+
+  create_table "entry_splits", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "entry_id", null: false
+    t.uuid "category_id"
+    t.decimal "amount", precision: 19, scale: 4, null: false
+    t.boolean "locked", default: false, null: false
+    t.integer "position", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_entry_splits_on_category_id"
+    t.index ["entry_id", "position"], name: "index_entry_splits_on_entry_id_and_position"
+    t.index ["entry_id"], name: "index_entry_splits_on_entry_id"
   end
 
   create_table "exchange_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -578,6 +610,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.jsonb "locked_attributes", default: {}
   end
 
+  create_table "reimbursement_links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "expense_entry_id", null: false
+    t.uuid "income_entry_id", null: false
+    t.decimal "amount", precision: 19, scale: 4, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expense_entry_id", "income_entry_id"], name: "index_reimbursement_links_on_expense_and_income", unique: true
+    t.index ["expense_entry_id"], name: "index_reimbursement_links_on_expense_entry_id"
+    t.index ["income_entry_id"], name: "index_reimbursement_links_on_income_entry_id"
+  end
+
   create_table "rejected_transfers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "inflow_transaction_id", null: false
     t.uuid "outflow_transaction_id", null: false
@@ -768,6 +811,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "exchange_rate", precision: 19, scale: 6
+    t.datetime "outflow_at"
+    t.datetime "inflow_at"
     t.index ["inflow_transaction_id", "outflow_transaction_id"], name: "idx_on_inflow_transaction_id_outflow_transaction_id_8cd07a28bd", unique: true
     t.index ["inflow_transaction_id"], name: "index_transfers_on_inflow_transaction_id"
     t.index ["outflow_transaction_id"], name: "index_transfers_on_outflow_transaction_id"
@@ -824,6 +870,20 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.jsonb "locked_attributes", default: {}
   end
 
+  create_table "webauthn_credentials", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "external_id", null: false
+    t.string "public_key", null: false
+    t.string "nickname"
+    t.integer "sign_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_webauthn_credentials_on_external_id", unique: true
+    t.index ["user_id"], name: "index_webauthn_credentials_on_user_id"
+  end
+
+  add_foreign_key "account_groups", "families"
+  add_foreign_key "accounts", "account_groups"
   add_foreign_key "accounts", "families"
   add_foreign_key "accounts", "imports"
   add_foreign_key "accounts", "plaid_accounts"
@@ -838,6 +898,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
   add_foreign_key "chats", "users"
   add_foreign_key "entries", "accounts"
   add_foreign_key "entries", "imports"
+  add_foreign_key "entry_splits", "categories"
+  add_foreign_key "entry_splits", "entries"
   add_foreign_key "family_exports", "families"
   add_foreign_key "holdings", "accounts"
   add_foreign_key "holdings", "securities"
@@ -855,6 +917,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "plaid_accounts", "plaid_items"
   add_foreign_key "plaid_items", "families"
+  add_foreign_key "reimbursement_links", "entries", column: "expense_entry_id"
+  add_foreign_key "reimbursement_links", "entries", column: "income_entry_id"
   add_foreign_key "rejected_transfers", "transactions", column: "inflow_transaction_id"
   add_foreign_key "rejected_transfers", "transactions", column: "outflow_transaction_id"
   add_foreign_key "rule_actions", "rules"
@@ -876,4 +940,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
   add_foreign_key "transfers", "transactions", column: "outflow_transaction_id", on_delete: :cascade
   add_foreign_key "users", "chats", column: "last_viewed_chat_id"
   add_foreign_key "users", "families"
+  add_foreign_key "webauthn_credentials", "users"
 end

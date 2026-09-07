@@ -73,6 +73,12 @@ ru:
       reverting: Отмена импорта...
       uploading: Обработка строк...
       view: Просмотр
+      revert_confirm_title: Отменить импорт?
+      revert_confirm_body: Импортированные транзакции будут удалены. Вы всегда сможете просмотреть и повторно импортировать данные.
+      type_transaction: Транзакции
+      type_trade: Инвестиции
+      type_mint: Mint
+      type_account: Счета
     index:
       imports: Импорты
       new: Новый импорт

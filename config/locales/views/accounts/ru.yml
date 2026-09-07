@@ -10,12 +10,18 @@ ru:
       new_account: Новый счёт
     account:
       troubleshoot: Диагностика
+      deletion_in_progress: удаление выполняется...
+      complete_setup: Завершить настройку
     chart:
       data_not_available: Нет данных за выбранный период
     create:
       success: "Счёт «%{type}» создан"
+    sync_all:
+      syncing: Синхронизация запущена…
     destroy:
       success: "Счёт «%{type}» поставлен в очередь на удаление"
+      linked_error: Нельзя удалить привязанный счёт
+      scheduled: Счёт поставлен в очередь на удаление
     empty:
       empty_message: Добавьте счёт через подключение, импорт или вручную.
       new_account: Новый счёт
@@ -54,6 +60,9 @@ ru:
         balance: Баланс
         owed: Сумма задолженности
       menu:
+        edit: Изменить
+        import: Импортировать транзакции
+        delete: Удалить счёт
         confirm_accept: 'Удалить «%{name}»'
         confirm_body_html: "<p>Удаление этого счёта сотрёт всю историю его транзакций,
           что повлияет на разные показатели вашего аккаунта. Это напрямую скажется

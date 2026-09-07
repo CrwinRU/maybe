@@ -6,5 +6,11 @@ ru:
     form:
       none: Нет
       subtype_prompt: Выберите тип счёта
+      subtype_checking: Расчётный
+      subtype_savings: Накопительный
+      subtype_cash: Наличные
+      subtype_hsa: Счёт здоровья (HSA)
+      subtype_cd: Депозит
+      subtype_money_market: Денежный рынок
     new:
       title: Введите баланс счёта

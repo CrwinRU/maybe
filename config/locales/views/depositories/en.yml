@@ -6,5 +6,11 @@ en:
     form:
       none: None
       subtype_prompt: Select account type
+      subtype_checking: Checking
+      subtype_savings: Savings
+      subtype_cash: Cash
+      subtype_hsa: Health Savings Account
+      subtype_cd: Certificate of Deposit
+      subtype_money_market: Money Market
     new:
       title: Enter account balance

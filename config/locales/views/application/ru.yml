@@ -1,5 +1,8 @@
 ---
 ru:
+  time:
+    formats:
+      import: "%-d %b %Y, %-H:%M"
   number:
     currency:
       format:

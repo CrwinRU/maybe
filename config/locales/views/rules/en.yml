@@ -1,6 +1,14 @@
 ---
 en:
   rules:
+    apply:
+      activated: Rule activated
+    update:
+      updated: Rule updated
+    destroy:
+      deleted: Rule deleted
+    destroy_all:
+      all_deleted: All rules deleted
     index:
       title: Rules
       new: New rule

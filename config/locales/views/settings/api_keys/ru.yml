@@ -11,6 +11,11 @@ ru:
         read_balances: "Просмотр балансов"
         write_transactions: "Создание транзакций"
     api_keys:
+      create:
+        created: API-ключ успешно создан
+      destroy:
+        revoked: API-ключ отозван
+        revoke_failed: Не удалось отозвать API-ключ
       show:
         title: "Управление API-ключом"
       no_api_key:
