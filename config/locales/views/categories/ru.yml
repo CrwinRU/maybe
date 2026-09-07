@@ -13,7 +13,13 @@ ru:
     edit:
       edit: Изменить категорию
     form:
+      classification: Тип
+      expense: Расход
+      income: Доход
+      name: Название
+      parent_category: Родительская категория (необязательно)
       placeholder: Название категории
+      unassigned: (не назначена)
     index:
       bootstrap: Использовать стандартные (рекомендуется)
       categories: Категории

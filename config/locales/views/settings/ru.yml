@@ -73,6 +73,7 @@ ru:
     settings_nav:
       accounts_label: Счета
       api_key_label: API-ключ
+      back: Назад
       billing_label: Оплата
       categories_label: Категории
       feedback_label: Обратная связь

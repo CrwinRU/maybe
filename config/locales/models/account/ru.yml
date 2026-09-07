@@ -19,6 +19,8 @@ ru:
       account/other_liability: Другое обязательство
       account/property: Недвижимость
       account/vehicle: Транспорт
+      category: категорию
+      family_merchant: контрагента
       crypto: Криптовалюта
       depository: Банковский счёт
       investment: Инвестиции
