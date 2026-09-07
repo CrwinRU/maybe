@@ -68,6 +68,14 @@ module Accountable
     end
   end
 
+  # Instance methods
+
+  def long_subtype_label
+    return nil if account.subtype.nil?
+    i18n_key = "#{self.class.name.underscore.pluralize}.form.subtype_#{account.subtype}"
+    I18n.t(i18n_key, default: self.class.long_subtype_label_for(account.subtype))
+  end
+
   def display_name
     self.class.display_name
   end
