@@ -8,6 +8,8 @@ ru:
       new_asset: Новый актив
       new_debt: Новое обязательство
       new_account: Новый счёт
+    accountable_group:
+      new_account: Добавить счёт
     account:
       troubleshoot: Диагностика
       deletion_in_progress: удаление выполняется...

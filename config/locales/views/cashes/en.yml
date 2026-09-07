@@ -4,4 +4,4 @@ en:
     edit:
       edit: Edit %{account}
     new:
-      title: Enter cash balance
+      title: Create Cash account

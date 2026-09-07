@@ -20,3 +20,13 @@ en:
       account/other_liability: Other Liability
       account/property: Real Estate
       account/vehicle: Vehicle
+      cash: Cash
+      crypto: Crypto
+      depository: Bank Account
+      investment: Investment
+      property: Real Estate
+      vehicle: Vehicle
+      other_asset: Other Asset
+      credit_card: Credit Card
+      loan: Loan
+      other_liability: Other Liability

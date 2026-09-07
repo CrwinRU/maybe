@@ -135,12 +135,16 @@ class Account < ApplicationRecord
 
   # Get short version of the subtype label
   def short_subtype_label
-    accountable_class.short_subtype_label_for(subtype) || accountable_class.display_name
+    raw = accountable_class.short_subtype_label_for(subtype)
+    return I18n.t("#{accountable_type.underscore.pluralize}.form.subtype_#{subtype}", default: raw) if raw
+    I18n.t("activerecord.models.#{accountable_type.underscore}", default: accountable_class.display_name)
   end
 
   # Get long version of the subtype label
   def long_subtype_label
-    accountable_class.long_subtype_label_for(subtype) || accountable_class.display_name
+    raw = accountable_class.long_subtype_label_for(subtype)
+    return I18n.t("#{accountable_type.underscore.pluralize}.form.subtype_#{subtype}", default: raw) if raw
+    I18n.t("activerecord.models.#{accountable_type.underscore}", default: accountable_class.display_name)
   end
 
   # The balance type determines which "component" of balance is being tracked.

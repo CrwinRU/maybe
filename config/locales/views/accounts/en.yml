@@ -1,6 +1,8 @@
 ---
 en:
   accounts:
+    accountable_group:
+      new_account: New account
     account:
       troubleshoot: Troubleshoot
       deletion_in_progress: deletion in progress...
