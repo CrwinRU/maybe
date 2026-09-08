@@ -37,13 +37,13 @@
 
         <div class="bg-surface rounded-xl p-1 space-y-1 overflow-x-auto">
           <div class="px-4 py-2 flex items-center uppercase text-xs font-medium text-secondary">
-            <div class="w-40">Name</div>
+            <div class="w-40"><%= t(".col_name") %></div>
             <div class="ml-auto text-right flex items-center gap-6">
               <div class="w-24">
-                <p>Weight</p>
+                <p><%= t(".col_weight") %></p>
               </div>
               <div class="w-40">
-                <p>Value</p>
+                <p><%= t(".col_value") %></p>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
                   <div class="w-40 shrink-0 flex items-center gap-4">
                     <%= icon("chevron-right", class: "group-open:rotate-90") %>
 
-                    <p><%= account_group.name %></p>
+                <p><%= account_group.name %></p>
                   </div>
 
                   <div class="flex items-center justify-between text-right gap-6">
@@ -117,8 +117,8 @@
             icon: classification_group.icon,
           ) %>
 
-          <p class="text-primary text-sm font-medium mb-1 mt-4">No <%= classification_group.name %> yet</p>
-          <p class="text-secondary text-sm text-center"><%= "Add your #{classification_group.name} accounts to see a full breakdown" %></p>
+          <p class="text-primary text-sm font-medium mb-1 mt-4"><%= t(".empty_title", name: classification_group.name) %></p>
+          <p class="text-secondary text-sm text-center"><%= t(".empty_subtitle", name: classification_group.name) %></p>
         </div>
       <% end %>
     </div>

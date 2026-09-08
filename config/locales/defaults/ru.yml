@@ -42,6 +42,7 @@ ru:
       default: "%d.%m.%Y"
       long: "%-d %B %Y"
       short: "%-d %b"
+      chart_axis: "%-d %b %Y"
     month_names:
     -
     - января

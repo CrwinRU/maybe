@@ -188,6 +188,9 @@ export default class extends Controller {
   }
 
   _drawXAxisLabels() {
+    const startLabel = this.dataValue.start_date_formatted || "";
+    const endLabel = this.dataValue.end_date_formatted || "";
+
     // Add ticks
     this._d3Group
       .append("g")
@@ -200,7 +203,7 @@ export default class extends Controller {
             this._normalDataPoints[this._normalDataPoints.length - 1].date,
           ])
           .tickSize(0)
-          .tickFormat(d3.timeFormat("%b %d, %Y")),
+          .tickFormat((_d, i) => (i === 0 ? startLabel : endLabel)),
       )
       .select(".domain")
       .remove();

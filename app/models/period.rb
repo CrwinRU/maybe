@@ -130,9 +130,9 @@ class Period
 
   def label
     if key_metadata
-      key_metadata.fetch(:label)
+      I18n.t("period.#{key}.label", default: key_metadata.fetch(:label))
     else
-      "Custom Period"
+      I18n.t("period.custom.label", default: "Custom Period")
     end
   end
 
@@ -140,13 +140,13 @@ class Period
     if key_metadata
       key_metadata.fetch(:label_short)
     else
-      "Custom"
+      I18n.t("period.custom.label_short", default: "Custom")
     end
   end
 
   def comparison_label
     if key_metadata
-      key_metadata.fetch(:comparison_label)
+      I18n.t("period.#{key}.comparison_label", default: key_metadata.fetch(:comparison_label))
     else
       "#{start_date.strftime(@date_format)} to #{end_date.strftime(@date_format)}"
     end

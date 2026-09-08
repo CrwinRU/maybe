@@ -1,0 +1,33 @@
+---
+ru:
+  period:
+    last_day:
+      label: Последний день
+      comparison_label: за вчера
+    current_week:
+      label: Текущая неделя
+      comparison_label: с начала недели
+    last_7_days:
+      label: Последние 7 дней
+      comparison_label: за прошлую неделю
+    current_month:
+      label: Текущий месяц
+      comparison_label: с начала месяца
+    last_30_days:
+      label: Последние 30 дней
+      comparison_label: за прошлый месяц
+    last_90_days:
+      label: Последние 90 дней
+      comparison_label: за прошлый квартал
+    current_year:
+      label: Текущий год
+      comparison_label: с начала года
+    last_365_days:
+      label: Последние 365 дней
+      comparison_label: за прошлый год
+    last_5_years:
+      label: Последние 5 лет
+      comparison_label: за 5 лет
+    custom:
+      label: Произвольный период
+      label_short: Период

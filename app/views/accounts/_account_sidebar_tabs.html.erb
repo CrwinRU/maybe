@@ -23,9 +23,29 @@
 
   <%= render DS::Tabs.new(active_tab: active_tab, session_key: "account_sidebar_tab", testid: "account-sidebar-tabs") do |tabs| %>
     <% tabs.with_nav do |nav| %>
+      <% nav.with_btn(id: "all", label: t("accounts.account_sidebar_tabs.all")) %>
       <% nav.with_btn(id: "asset", label: t("accounts.account_sidebar_tabs.assets")) %>
       <% nav.with_btn(id: "liability", label: t("accounts.account_sidebar_tabs.debts")) %>
-      <% nav.with_btn(id: "all", label: t("accounts.account_sidebar_tabs.all")) %>
+    <% end %>
+
+    <% tabs.with_panel(tab_id: "all") do %>
+      <div class="space-y-2">
+        <%= render DS::Link.new(
+            text: t("accounts.account_sidebar_tabs.new_account"),
+            variant: "ghost",
+            full_width: true,
+            href: new_account_path(step: "method_select"),
+            icon: "plus",
+            frame: :modal,
+            class: "justify-start"
+          ) %>
+
+        <div>
+          <% family.balance_sheet.account_groups.each do |group| %>
+            <%= render "accounts/accountable_group", account_group: group, mobile: mobile, all_tab: true %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
 
     <% tabs.with_panel(tab_id: "asset") do %>
@@ -63,26 +83,6 @@
         <div>
           <% family.balance_sheet.liabilities.account_groups.each do |group| %>
             <%= render "accounts/accountable_group", account_group: group, mobile: mobile %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-
-    <% tabs.with_panel(tab_id: "all") do %>
-      <div class="space-y-2">
-        <%= render DS::Link.new(
-            text: t("accounts.account_sidebar_tabs.new_account"),
-            variant: "ghost",
-            full_width: true,
-            href: new_account_path(step: "method_select"),
-            icon: "plus",
-            frame: :modal,
-            class: "justify-start"
-          ) %>
-
-        <div>
-          <% family.balance_sheet.account_groups.each do |group| %>
-            <%= render "accounts/accountable_group", account_group: group, mobile: mobile, all_tab: true %>
           <% end %>
         </div>
       </div>

@@ -1,0 +1,33 @@
+---
+en:
+  period:
+    last_day:
+      label: Last Day
+      comparison_label: vs. yesterday
+    current_week:
+      label: Current Week
+      comparison_label: vs. start of week
+    last_7_days:
+      label: Last 7 Days
+      comparison_label: vs. last week
+    current_month:
+      label: Current Month
+      comparison_label: vs. start of month
+    last_30_days:
+      label: Last 30 Days
+      comparison_label: vs. last month
+    last_90_days:
+      label: Last 90 Days
+      comparison_label: vs. last quarter
+    current_year:
+      label: Current Year
+      comparison_label: vs. start of year
+    last_365_days:
+      label: Last 365 Days
+      comparison_label: vs. 1 year ago
+    last_5_years:
+      label: Last 5 Years
+      comparison_label: vs. 5 years ago
+    custom:
+      label: Custom Period
+      label_short: Custom

@@ -7,13 +7,13 @@ module RestoreLayoutPreferences
 
   private
     def restore_active_tabs
-      last_selected_tab = Current.session&.get_preferred_tab("account_sidebar_tab") || "asset"
+      last_selected_tab = Current.session&.get_preferred_tab("account_sidebar_tab") || "all"
 
       @account_group_tab = account_group_tab_param || last_selected_tab
     end
 
     def valid_account_group_tabs
-      %w[asset liability all]
+      %w[all asset liability]
     end
 
     def account_group_tab_param

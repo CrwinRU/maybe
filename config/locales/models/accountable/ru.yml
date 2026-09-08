@@ -1,0 +1,23 @@
+---
+ru:
+  accountable:
+    depository:
+      display_name: Вклады и депозиты
+    investment:
+      display_name: Инвестиции
+    crypto:
+      display_name: Криптовалюта
+    property:
+      display_name: Недвижимость
+    vehicle:
+      display_name: Транспорт
+    other_asset:
+      display_name: Прочие активы
+    credit_card:
+      display_name: Кредитные карты
+    loan:
+      display_name: Кредиты и займы
+    other_liability:
+      display_name: Прочие обязательства
+    cash:
+      display_name: Наличные

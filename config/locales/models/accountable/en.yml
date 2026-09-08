@@ -1,0 +1,23 @@
+---
+en:
+  accountable:
+    depository:
+      display_name: Depositories
+    investment:
+      display_name: Investments
+    crypto:
+      display_name: Cryptos
+    property:
+      display_name: Properties
+    vehicle:
+      display_name: Vehicles
+    other_asset:
+      display_name: Other Assets
+    credit_card:
+      display_name: Credit Cards
+    loan:
+      display_name: Loans
+    other_liability:
+      display_name: Other Liabilities
+    cash:
+      display_name: Cash

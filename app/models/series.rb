@@ -68,6 +68,8 @@ class Series
     {
       start_date: start_date,
       end_date: end_date,
+      start_date_formatted: I18n.l(start_date, format: :chart_axis),
+      end_date_formatted: I18n.l(end_date, format: :chart_axis),
       interval: interval,
       trend: trend,
       values: values.map { |v| { date: v.date, date_formatted: v.date_formatted, value: v.value, trend: v.trend } }

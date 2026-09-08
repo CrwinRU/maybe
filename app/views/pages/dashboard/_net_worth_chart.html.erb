@@ -35,7 +35,12 @@
     id="netWorthChart"
     class="w-full flex-1 min-h-52"
     data-controller="time-series-chart"
+    data-time-series-chart-use-labels-value="false"
     data-time-series-chart-data-value="<%= series.to_json %>"></div>
+    <div class="flex justify-between px-4 mt-1">
+      <span class="text-xs font-medium text-secondary"><%= I18n.l(series.start_date, format: :chart_axis) %></span>
+      <span class="text-xs font-medium text-secondary"><%= I18n.l(series.end_date, format: :chart_axis) %></span>
+    </div>
   <% else %>
     <div class="w-full h-full flex items-center justify-center">
       <p class="text-secondary text-sm"><%= t(".data_not_available") %></p>

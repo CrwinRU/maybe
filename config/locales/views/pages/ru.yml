@@ -14,6 +14,17 @@ ru:
       net_worth_chart:
         data_not_available: Нет данных за выбранный период
         title: Капитал
+      balance_sheet:
+        col_name: Название
+        col_weight: Доля
+        col_value: Сумма
+        empty_title: Нет %{name} пока
+        empty_subtitle: Добавьте счета типа «%{name}», чтобы увидеть детализацию
+      cashflow_sankey:
+        title: Денежный поток
+        empty_title: Нет данных за выбранный период
+        empty_subtitle: Добавьте транзакции или выберите другой период
+        add_transaction: Добавить транзакцию
       no_account_empty_state:
         new_account: Новый счёт
         no_account_subtitle: Счета ещё не добавлены, поэтому показывать нечего.

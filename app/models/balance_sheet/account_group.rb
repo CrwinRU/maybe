@@ -3,10 +3,14 @@ class BalanceSheet::AccountGroup
 
   monetize :total, as: :total_money
 
-  attr_reader :name, :color, :accountable_type, :accounts
+  attr_reader :color, :accountable_type, :accounts
+
+  def name
+    I18n.t("activerecord.models.#{key}", default: @raw_name)
+  end
 
   def initialize(name:, color:, accountable_type:, accounts:, classification_group:)
-    @name = name
+    @raw_name = name
     @color = color
     @accountable_type = accountable_type
     @accounts = accounts
