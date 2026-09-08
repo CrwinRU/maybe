@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validate :ensure_valid_profile_image
+  validate :password_complexity, if: :password_digest_changed?
   validates :default_period, inclusion: { in: Period::PERIODS.keys }
   normalizes :email, with: ->(email) { email.strip.downcase }
   normalizes :unconfirmed_email, with: ->(email) { email&.strip&.downcase }
@@ -171,6 +172,15 @@ class User < ApplicationRecord
         errors.add(:profile_image, "must be a JPEG or PNG")
         profile_image.purge
       end
+    end
+
+    def password_complexity
+      return if password.blank?
+
+      errors.add(:password, :too_short, count: 8) if password.length < 8
+      errors.add(:password, :missing_mixed_case) unless password.match?(/[A-Z]/) && password.match?(/[a-z]/)
+      errors.add(:password, :missing_digit) unless password.match?(/\d/)
+      errors.add(:password, :missing_special) unless password.match?(/[!@#$%^&*(),.?":{}|<>]/)
     end
 
     def last_user_in_family?
